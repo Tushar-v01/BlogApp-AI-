@@ -14,10 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 //Network error
-app.use(cors({
-    origin: 'http://localhost:5174', // allow your frontend
-    credentials: true
-  }));
+// app.use(cors({
+//     origin: 'http://localhost:5174', // allow your frontend
+//     credentials: true
+//   }));
   
 
 // Routes

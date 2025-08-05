@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAppContext } from '../../context/AppContext';
 import toast from 'react-hot-toast';
+import { Outlet } from 'react-router-dom';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -71,6 +72,7 @@ function Login() {
             Login
           </button>
         </form>
+        {/* <Outlet/> */}
       </div>
     </div>
   );

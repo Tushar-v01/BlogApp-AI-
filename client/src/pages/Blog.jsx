@@ -21,6 +21,7 @@ function Blog() {
 const fetchBlog = useCallback(async () => {
   try {
     const { data } = await axios.get(`/api/blog/${id}`);
+    // console.log(data);
     data.success ? setData(data.blog) : toast.error(data.message);
   } catch (error) {
     toast.error(error.message);
@@ -29,9 +30,14 @@ const fetchBlog = useCallback(async () => {
 
 
   const fetchComments = async () => {
+   
+
   try {
     const { data } = await axios.post('/api/blog/comments', { blogId: id });
-
+     
+    //New line
+    //  console.log("Fetched comments:", data.comments.length);
+    // console.log(data);
     if (data.success) {
       setComments(data.comments);
     } else {
@@ -75,7 +81,7 @@ const addComment = async (e) => {
   useEffect(() => {
     fetchBlog();
     fetchComments();
-  }, [fetchBlog, fetchComments]);
+  }, [fetchBlog]);  //changes
 
   return data ? (
     <div className='relative'>
@@ -96,7 +102,8 @@ const addComment = async (e) => {
         </h1>
         <h2 className='my-5 max-w-lg truncate mx-auto'>{data.subtitle}</h2>
         <p className='inline-block py-1 px-4 rounded-full mb-6 border text-sm border-primary/35 bg-primary/5 font-medium text-primary'>
-          Michael Brown
+          Tushar Verma  
+          {/* Changes */}
         </p>
       </div>
 
@@ -106,7 +113,9 @@ const addComment = async (e) => {
         <div
           className='rich-text max-w-3xl mx-auto'
           dangerouslySetInnerHTML={{ __html: data.description }}
-        ></div>
+        >
+         {/* {console.log(data.description)} */}
+        </div>
 
         {/* Comments */}
         <div className='mt-14 mb-10 max-w mx-auto'>

@@ -19,7 +19,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/blog/:id' element={<Blog />} />
-
         {/* Nested routes under /admin */}
         <Route path='/admin' element={ token ? <Layout /> : <Login/>}>
           <Route index element={ <Dashboard />}/>
@@ -28,6 +27,7 @@ function App() {
           <Route path='comments' element={<Comments />} />
         </Route>
       </Routes>
+      
     </div>
   );
 }
